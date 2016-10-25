@@ -38,14 +38,14 @@ extern int marksprog_1_freeresult ();
 
 #if defined(__STDC__) || defined(__cplusplus)
 #define L1N1PROC 1
-extern  int * l1n1proc_2(name *, CLIENT *);
-extern  int * l1n1proc_2_svc(name *, struct svc_req *);
+extern  name * l1n1proc_2(name *, CLIENT *);
+extern  name * l1n1proc_2_svc(name *, struct svc_req *);
 extern int marksprog_2_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
 #define L1N1PROC 1
-extern  int * l1n1proc_2();
-extern  int * l1n1proc_2_svc();
+extern  name * l1n1proc_2();
+extern  name * l1n1proc_2_svc();
 extern int marksprog_2_freeresult ();
 #endif /* K&R C */
 #define L1N2VERS 3

@@ -7,7 +7,7 @@ version MARKSVERS {
 int NAMEPROC(name ) = 1;
 } = 1;	
 version L1N1VERS{
-	int L1N1PROC(name) =1;
+	name L1N1PROC(name) =1;
 } = 2;
 version L1N2VERS{
 	int L1N2PROC(name) = 1;

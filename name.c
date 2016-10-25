@@ -3,7 +3,8 @@
 int main(int argc,char** argv)
 {
      CLIENT *cl;
-     int *result;
+     int t;
+     int *result = &t;
 
      if (argc != 2) {
           fprintf(stderr, "usage: prog domain_name\n");
@@ -12,8 +13,9 @@ int main(int argc,char** argv)
      struct name *N;
      struct name temp;
      N = &temp;
-     strncpy(N->content, argv[2], 64);
-     cl = clnt_create(argv[1], MARKSPROG, MARKSVERS, "udp");
+     strncpy(N->content, argv[1], 64);
+     printf("%s\n", N->content);
+     cl = clnt_create("localhost", MARKSPROG, MARKSVERS, "udp");
      if (cl == NULL) {
           printf("can't establish connection with main DNS server\n");
           clnt_pcreateerror(argv[1]);
@@ -28,10 +30,11 @@ int main(int argc,char** argv)
      int level = 1;
      printf("level %d => node number %d\n",level, *result);
      if (*result == 2)
-          cl = clnt_create(argv[1], MARKSPROG, L1N1VERS, "udp");
+          cl = clnt_create("localhost", MARKSPROG, L1N1VERS, "udp");
      else if (*result == 3)
           cl = clnt_create(argv[1], MARKSPROG, L1N2VERS, "udp");
-     result = l1n1proc_2(N, cl);
+     N = l1n1proc_2(N, cl);
+     printf("%s\n", N->content);
      level ++;
 
      return 0;

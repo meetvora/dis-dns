@@ -74,7 +74,7 @@ marksprog_2(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case L1N1PROC:
 		_xdr_argument = (xdrproc_t) xdr_name;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_name;
 		local = (char *(*)(char *, struct svc_req *)) l1n1proc_2_svc;
 		break;
 
