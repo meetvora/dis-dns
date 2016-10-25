@@ -156,7 +156,7 @@ dnsprog_4(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case NODEPROC:
 		_xdr_argument = (xdrproc_t) xdr_domain;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_domain;
 		local = (char *(*)(char *, struct svc_req *)) nodeproc_4_svc;
 		break;
 
@@ -197,7 +197,7 @@ dnsprog_5(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case NODEPROC:
 		_xdr_argument = (xdrproc_t) xdr_domain;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_domain;
 		local = (char *(*)(char *, struct svc_req *)) nodeproc_5_svc;
 		break;
 
@@ -238,7 +238,7 @@ dnsprog_6(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case NODEPROC:
 		_xdr_argument = (xdrproc_t) xdr_domain;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_domain;
 		local = (char *(*)(char *, struct svc_req *)) nodeproc_6_svc;
 		break;
 
@@ -279,8 +279,49 @@ dnsprog_7(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case NODEPROC:
 		_xdr_argument = (xdrproc_t) xdr_domain;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_domain;
 		local = (char *(*)(char *, struct svc_req *)) nodeproc_7_svc;
+		break;
+
+	default:
+		svcerr_noproc (transp);
+		return;
+	}
+	memset ((char *)&argument, 0, sizeof (argument));
+	if (!svc_getargs (transp, (xdrproc_t) _xdr_argument, (caddr_t) &argument)) {
+		svcerr_decode (transp);
+		return;
+	}
+	result = (*local)((char *)&argument, rqstp);
+	if (result != NULL && !svc_sendreply(transp, (xdrproc_t) _xdr_result, result)) {
+		svcerr_systemerr (transp);
+	}
+	if (!svc_freeargs (transp, (xdrproc_t) _xdr_argument, (caddr_t) &argument)) {
+		fprintf (stderr, "%s", "unable to free arguments");
+		exit (1);
+	}
+	return;
+}
+
+static void
+dnsprog_8(struct svc_req *rqstp, register SVCXPRT *transp)
+{
+	union {
+		domain nodeproc_8_arg;
+	} argument;
+	char *result;
+	xdrproc_t _xdr_argument, _xdr_result;
+	char *(*local)(char *, struct svc_req *);
+
+	switch (rqstp->rq_proc) {
+	case NULLPROC:
+		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
+		return;
+
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
+		_xdr_result = (xdrproc_t) xdr_domain;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_8_svc;
 		break;
 
 	default:
@@ -315,6 +356,7 @@ main (int argc, char **argv)
 	pmap_unset (DNSPROG, NODE5);
 	pmap_unset (DNSPROG, NODE6);
 	pmap_unset (DNSPROG, NODE7);
+	pmap_unset (DNSPROG, NODE8);
 
 	transp = svcudp_create(RPC_ANYSOCK);
 	if (transp == NULL) {
@@ -349,6 +391,10 @@ main (int argc, char **argv)
 		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE7, udp).");
 		exit(1);
 	}
+	if (!svc_register(transp, DNSPROG, NODE8, dnsprog_8, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE8, udp).");
+		exit(1);
+	}
 
 	transp = svctcp_create(RPC_ANYSOCK, 0, 0);
 	if (transp == NULL) {
@@ -381,6 +427,10 @@ main (int argc, char **argv)
 	}
 	if (!svc_register(transp, DNSPROG, NODE7, dnsprog_7, IPPROTO_TCP)) {
 		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE7, tcp).");
+		exit(1);
+	}
+	if (!svc_register(transp, DNSPROG, NODE8, dnsprog_8, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE8, tcp).");
 		exit(1);
 	}
 

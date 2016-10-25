@@ -13,15 +13,18 @@ version NODE3{
 	int NODEPROC(domain) = 1;
 } = 3;
 version NODE4{
-	int NODEPROC(domain) = 1;
+	domain NODEPROC(domain) = 1;
 } = 4;
 version NODE5{
-	int NODEPROC(domain) = 1;
+	domain NODEPROC(domain) = 1;
 } = 5;
 version NODE6{
-	int NODEPROC(domain) = 1;
+	domain NODEPROC(domain) = 1;
 } = 6;
 version NODE7{
-	int NODEPROC(domain) = 1;
+	domain NODEPROC(domain) = 1;
 } = 7;
+version NODE8{
+	domain NODEPROC(domain) = 1;
+} = 8;
 } = 0x3012225;
