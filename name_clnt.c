@@ -10,13 +10,13 @@
 static struct timeval TIMEOUT = { 25, 0 };
 
 int *
-nameproc_1(name *argp, CLIENT *clnt)
+nodeproc_1(domain *argp, CLIENT *clnt)
 {
 	static int clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, NAMEPROC,
-		(xdrproc_t) xdr_name, (caddr_t) argp,
+	if (clnt_call (clnt, NODEPROC,
+		(xdrproc_t) xdr_domain, (caddr_t) argp,
 		(xdrproc_t) xdr_int, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -24,15 +24,15 @@ nameproc_1(name *argp, CLIENT *clnt)
 	return (&clnt_res);
 }
 
-name *
-l1n1proc_2(name *argp, CLIENT *clnt)
+domain *
+nodeproc_2(domain *argp, CLIENT *clnt)
 {
-	static name clnt_res;
+	static domain clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, L1N1PROC,
-		(xdrproc_t) xdr_name, (caddr_t) argp,
-		(xdrproc_t) xdr_name, (caddr_t) &clnt_res,
+	if (clnt_call (clnt, NODEPROC,
+		(xdrproc_t) xdr_domain, (caddr_t) argp,
+		(xdrproc_t) xdr_domain, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
 	}
@@ -40,28 +40,13 @@ l1n1proc_2(name *argp, CLIENT *clnt)
 }
 
 int *
-l1n2proc_3(name *argp, CLIENT *clnt)
+nodeproc_3(domain *argp, CLIENT *clnt)
 {
 	static int clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, L1N2PROC,
-		(xdrproc_t) xdr_name, (caddr_t) argp,
-		(xdrproc_t) xdr_int, (caddr_t) &clnt_res,
-		TIMEOUT) != RPC_SUCCESS) {
-		return (NULL);
-	}
-	return (&clnt_res);
-}
-
-int *
-l2n1proc_4(name *argp, CLIENT *clnt)
-{
-	static int clnt_res;
-
-	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, L2N1PROC,
-		(xdrproc_t) xdr_name, (caddr_t) argp,
+	if (clnt_call (clnt, NODEPROC,
+		(xdrproc_t) xdr_domain, (caddr_t) argp,
 		(xdrproc_t) xdr_int, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -70,13 +55,13 @@ l2n1proc_4(name *argp, CLIENT *clnt)
 }
 
 int *
-l2n2proc_5(name *argp, CLIENT *clnt)
+nodeproc_4(domain *argp, CLIENT *clnt)
 {
 	static int clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, L2N2PROC,
-		(xdrproc_t) xdr_name, (caddr_t) argp,
+	if (clnt_call (clnt, NODEPROC,
+		(xdrproc_t) xdr_domain, (caddr_t) argp,
 		(xdrproc_t) xdr_int, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -85,13 +70,13 @@ l2n2proc_5(name *argp, CLIENT *clnt)
 }
 
 int *
-l2n3proc_6(name *argp, CLIENT *clnt)
+nodeproc_5(domain *argp, CLIENT *clnt)
 {
 	static int clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, L2N3PROC,
-		(xdrproc_t) xdr_name, (caddr_t) argp,
+	if (clnt_call (clnt, NODEPROC,
+		(xdrproc_t) xdr_domain, (caddr_t) argp,
 		(xdrproc_t) xdr_int, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);
@@ -100,13 +85,28 @@ l2n3proc_6(name *argp, CLIENT *clnt)
 }
 
 int *
-l2n4proc_7(name *argp, CLIENT *clnt)
+nodeproc_6(domain *argp, CLIENT *clnt)
 {
 	static int clnt_res;
 
 	memset((char *)&clnt_res, 0, sizeof(clnt_res));
-	if (clnt_call (clnt, L2N4PROC,
-		(xdrproc_t) xdr_name, (caddr_t) argp,
+	if (clnt_call (clnt, NODEPROC,
+		(xdrproc_t) xdr_domain, (caddr_t) argp,
+		(xdrproc_t) xdr_int, (caddr_t) &clnt_res,
+		TIMEOUT) != RPC_SUCCESS) {
+		return (NULL);
+	}
+	return (&clnt_res);
+}
+
+int *
+nodeproc_7(domain *argp, CLIENT *clnt)
+{
+	static int clnt_res;
+
+	memset((char *)&clnt_res, 0, sizeof(clnt_res));
+	if (clnt_call (clnt, NODEPROC,
+		(xdrproc_t) xdr_domain, (caddr_t) argp,
 		(xdrproc_t) xdr_int, (caddr_t) &clnt_res,
 		TIMEOUT) != RPC_SUCCESS) {
 		return (NULL);

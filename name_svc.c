@@ -17,10 +17,10 @@
 #endif
 
 static void
-marksprog_1(struct svc_req *rqstp, register SVCXPRT *transp)
+dnsprog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		name nameproc_1_arg;
+		domain nodeproc_1_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -31,10 +31,10 @@ marksprog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case NAMEPROC:
-		_xdr_argument = (xdrproc_t) xdr_name;
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
 		_xdr_result = (xdrproc_t) xdr_int;
-		local = (char *(*)(char *, struct svc_req *)) nameproc_1_svc;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_1_svc;
 		break;
 
 	default:
@@ -58,10 +58,10 @@ marksprog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 }
 
 static void
-marksprog_2(struct svc_req *rqstp, register SVCXPRT *transp)
+dnsprog_2(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		name l1n1proc_2_arg;
+		domain nodeproc_2_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -72,10 +72,10 @@ marksprog_2(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case L1N1PROC:
-		_xdr_argument = (xdrproc_t) xdr_name;
-		_xdr_result = (xdrproc_t) xdr_name;
-		local = (char *(*)(char *, struct svc_req *)) l1n1proc_2_svc;
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
+		_xdr_result = (xdrproc_t) xdr_domain;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_2_svc;
 		break;
 
 	default:
@@ -99,10 +99,10 @@ marksprog_2(struct svc_req *rqstp, register SVCXPRT *transp)
 }
 
 static void
-marksprog_3(struct svc_req *rqstp, register SVCXPRT *transp)
+dnsprog_3(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		name l1n2proc_3_arg;
+		domain nodeproc_3_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -113,10 +113,10 @@ marksprog_3(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case L1N2PROC:
-		_xdr_argument = (xdrproc_t) xdr_name;
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
 		_xdr_result = (xdrproc_t) xdr_int;
-		local = (char *(*)(char *, struct svc_req *)) l1n2proc_3_svc;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_3_svc;
 		break;
 
 	default:
@@ -140,10 +140,10 @@ marksprog_3(struct svc_req *rqstp, register SVCXPRT *transp)
 }
 
 static void
-marksprog_4(struct svc_req *rqstp, register SVCXPRT *transp)
+dnsprog_4(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		name l2n1proc_4_arg;
+		domain nodeproc_4_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -154,10 +154,10 @@ marksprog_4(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case L2N1PROC:
-		_xdr_argument = (xdrproc_t) xdr_name;
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
 		_xdr_result = (xdrproc_t) xdr_int;
-		local = (char *(*)(char *, struct svc_req *)) l2n1proc_4_svc;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_4_svc;
 		break;
 
 	default:
@@ -181,10 +181,10 @@ marksprog_4(struct svc_req *rqstp, register SVCXPRT *transp)
 }
 
 static void
-marksprog_5(struct svc_req *rqstp, register SVCXPRT *transp)
+dnsprog_5(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		name l2n2proc_5_arg;
+		domain nodeproc_5_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -195,10 +195,10 @@ marksprog_5(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case L2N2PROC:
-		_xdr_argument = (xdrproc_t) xdr_name;
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
 		_xdr_result = (xdrproc_t) xdr_int;
-		local = (char *(*)(char *, struct svc_req *)) l2n2proc_5_svc;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_5_svc;
 		break;
 
 	default:
@@ -222,10 +222,10 @@ marksprog_5(struct svc_req *rqstp, register SVCXPRT *transp)
 }
 
 static void
-marksprog_6(struct svc_req *rqstp, register SVCXPRT *transp)
+dnsprog_6(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		name l2n3proc_6_arg;
+		domain nodeproc_6_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -236,10 +236,10 @@ marksprog_6(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case L2N3PROC:
-		_xdr_argument = (xdrproc_t) xdr_name;
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
 		_xdr_result = (xdrproc_t) xdr_int;
-		local = (char *(*)(char *, struct svc_req *)) l2n3proc_6_svc;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_6_svc;
 		break;
 
 	default:
@@ -263,10 +263,10 @@ marksprog_6(struct svc_req *rqstp, register SVCXPRT *transp)
 }
 
 static void
-marksprog_7(struct svc_req *rqstp, register SVCXPRT *transp)
+dnsprog_7(struct svc_req *rqstp, register SVCXPRT *transp)
 {
 	union {
-		name l2n4proc_7_arg;
+		domain nodeproc_7_arg;
 	} argument;
 	char *result;
 	xdrproc_t _xdr_argument, _xdr_result;
@@ -277,10 +277,10 @@ marksprog_7(struct svc_req *rqstp, register SVCXPRT *transp)
 		(void) svc_sendreply (transp, (xdrproc_t) xdr_void, (char *)NULL);
 		return;
 
-	case L2N4PROC:
-		_xdr_argument = (xdrproc_t) xdr_name;
+	case NODEPROC:
+		_xdr_argument = (xdrproc_t) xdr_domain;
 		_xdr_result = (xdrproc_t) xdr_int;
-		local = (char *(*)(char *, struct svc_req *)) l2n4proc_7_svc;
+		local = (char *(*)(char *, struct svc_req *)) nodeproc_7_svc;
 		break;
 
 	default:
@@ -308,45 +308,45 @@ main (int argc, char **argv)
 {
 	register SVCXPRT *transp;
 
-	pmap_unset (MARKSPROG, MARKSVERS);
-	pmap_unset (MARKSPROG, L1N1VERS);
-	pmap_unset (MARKSPROG, L1N2VERS);
-	pmap_unset (MARKSPROG, L2N1VERS);
-	pmap_unset (MARKSPROG, L2N2VERS);
-	pmap_unset (MARKSPROG, L2N3VERS);
-	pmap_unset (MARKSPROG, L2N4VERS);
+	pmap_unset (DNSPROG, ROOT);
+	pmap_unset (DNSPROG, NODE2);
+	pmap_unset (DNSPROG, NODE3);
+	pmap_unset (DNSPROG, NODE4);
+	pmap_unset (DNSPROG, NODE5);
+	pmap_unset (DNSPROG, NODE6);
+	pmap_unset (DNSPROG, NODE7);
 
 	transp = svcudp_create(RPC_ANYSOCK);
 	if (transp == NULL) {
 		fprintf (stderr, "%s", "cannot create udp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, MARKSVERS, marksprog_1, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, MARKSVERS, udp).");
+	if (!svc_register(transp, DNSPROG, ROOT, dnsprog_1, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, ROOT, udp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L1N1VERS, marksprog_2, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L1N1VERS, udp).");
+	if (!svc_register(transp, DNSPROG, NODE2, dnsprog_2, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE2, udp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L1N2VERS, marksprog_3, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L1N2VERS, udp).");
+	if (!svc_register(transp, DNSPROG, NODE3, dnsprog_3, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE3, udp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N1VERS, marksprog_4, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N1VERS, udp).");
+	if (!svc_register(transp, DNSPROG, NODE4, dnsprog_4, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE4, udp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N2VERS, marksprog_5, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N2VERS, udp).");
+	if (!svc_register(transp, DNSPROG, NODE5, dnsprog_5, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE5, udp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N3VERS, marksprog_6, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N3VERS, udp).");
+	if (!svc_register(transp, DNSPROG, NODE6, dnsprog_6, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE6, udp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N4VERS, marksprog_7, IPPROTO_UDP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N4VERS, udp).");
+	if (!svc_register(transp, DNSPROG, NODE7, dnsprog_7, IPPROTO_UDP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE7, udp).");
 		exit(1);
 	}
 
@@ -355,32 +355,32 @@ main (int argc, char **argv)
 		fprintf (stderr, "%s", "cannot create tcp service.");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, MARKSVERS, marksprog_1, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, MARKSVERS, tcp).");
+	if (!svc_register(transp, DNSPROG, ROOT, dnsprog_1, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, ROOT, tcp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L1N1VERS, marksprog_2, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L1N1VERS, tcp).");
+	if (!svc_register(transp, DNSPROG, NODE2, dnsprog_2, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE2, tcp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L1N2VERS, marksprog_3, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L1N2VERS, tcp).");
+	if (!svc_register(transp, DNSPROG, NODE3, dnsprog_3, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE3, tcp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N1VERS, marksprog_4, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N1VERS, tcp).");
+	if (!svc_register(transp, DNSPROG, NODE4, dnsprog_4, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE4, tcp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N2VERS, marksprog_5, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N2VERS, tcp).");
+	if (!svc_register(transp, DNSPROG, NODE5, dnsprog_5, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE5, tcp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N3VERS, marksprog_6, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N3VERS, tcp).");
+	if (!svc_register(transp, DNSPROG, NODE6, dnsprog_6, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE6, tcp).");
 		exit(1);
 	}
-	if (!svc_register(transp, MARKSPROG, L2N4VERS, marksprog_7, IPPROTO_TCP)) {
-		fprintf (stderr, "%s", "unable to register (MARKSPROG, L2N4VERS, tcp).");
+	if (!svc_register(transp, DNSPROG, NODE7, dnsprog_7, IPPROTO_TCP)) {
+		fprintf (stderr, "%s", "unable to register (DNSPROG, NODE7, tcp).");
 		exit(1);
 	}
 

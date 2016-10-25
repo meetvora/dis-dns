@@ -6,7 +6,7 @@
 #include "name.h"
 
 bool_t
-xdr_name (XDR *xdrs, name *objp)
+xdr_domain (XDR *xdrs, domain *objp)
 {
 	register int32_t *buf;
 

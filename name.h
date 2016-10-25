@@ -14,118 +14,106 @@ extern "C" {
 #endif
 
 
-struct name {
+struct domain {
 	char content[64];
 };
-typedef struct name name;
+typedef struct domain domain;
 
-#define MARKSPROG 0x3012225
-#define MARKSVERS 1
+#define DNSPROG 0x3012225
+#define ROOT 1
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define NAMEPROC 1
-extern  int * nameproc_1(name *, CLIENT *);
-extern  int * nameproc_1_svc(name *, struct svc_req *);
-extern int marksprog_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+#define NODEPROC 1
+extern  int * nodeproc_1(domain *, CLIENT *);
+extern  int * nodeproc_1_svc(domain *, struct svc_req *);
+extern int dnsprog_1_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define NAMEPROC 1
-extern  int * nameproc_1();
-extern  int * nameproc_1_svc();
-extern int marksprog_1_freeresult ();
+#define NODEPROC 1
+extern  int * nodeproc_1();
+extern  int * nodeproc_1_svc();
+extern int dnsprog_1_freeresult ();
 #endif /* K&R C */
-#define L1N1VERS 2
+#define NODE2 2
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define L1N1PROC 1
-extern  name * l1n1proc_2(name *, CLIENT *);
-extern  name * l1n1proc_2_svc(name *, struct svc_req *);
-extern int marksprog_2_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+extern  domain * nodeproc_2(domain *, CLIENT *);
+extern  domain * nodeproc_2_svc(domain *, struct svc_req *);
+extern int dnsprog_2_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define L1N1PROC 1
-extern  name * l1n1proc_2();
-extern  name * l1n1proc_2_svc();
-extern int marksprog_2_freeresult ();
+extern  domain * nodeproc_2();
+extern  domain * nodeproc_2_svc();
+extern int dnsprog_2_freeresult ();
 #endif /* K&R C */
-#define L1N2VERS 3
+#define NODE3 3
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define L1N2PROC 1
-extern  int * l1n2proc_3(name *, CLIENT *);
-extern  int * l1n2proc_3_svc(name *, struct svc_req *);
-extern int marksprog_3_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+extern  int * nodeproc_3(domain *, CLIENT *);
+extern  int * nodeproc_3_svc(domain *, struct svc_req *);
+extern int dnsprog_3_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define L1N2PROC 1
-extern  int * l1n2proc_3();
-extern  int * l1n2proc_3_svc();
-extern int marksprog_3_freeresult ();
+extern  int * nodeproc_3();
+extern  int * nodeproc_3_svc();
+extern int dnsprog_3_freeresult ();
 #endif /* K&R C */
-#define L2N1VERS 4
+#define NODE4 4
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define L2N1PROC 1
-extern  int * l2n1proc_4(name *, CLIENT *);
-extern  int * l2n1proc_4_svc(name *, struct svc_req *);
-extern int marksprog_4_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+extern  int * nodeproc_4(domain *, CLIENT *);
+extern  int * nodeproc_4_svc(domain *, struct svc_req *);
+extern int dnsprog_4_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define L2N1PROC 1
-extern  int * l2n1proc_4();
-extern  int * l2n1proc_4_svc();
-extern int marksprog_4_freeresult ();
+extern  int * nodeproc_4();
+extern  int * nodeproc_4_svc();
+extern int dnsprog_4_freeresult ();
 #endif /* K&R C */
-#define L2N2VERS 5
+#define NODE5 5
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define L2N2PROC 1
-extern  int * l2n2proc_5(name *, CLIENT *);
-extern  int * l2n2proc_5_svc(name *, struct svc_req *);
-extern int marksprog_5_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+extern  int * nodeproc_5(domain *, CLIENT *);
+extern  int * nodeproc_5_svc(domain *, struct svc_req *);
+extern int dnsprog_5_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define L2N2PROC 1
-extern  int * l2n2proc_5();
-extern  int * l2n2proc_5_svc();
-extern int marksprog_5_freeresult ();
+extern  int * nodeproc_5();
+extern  int * nodeproc_5_svc();
+extern int dnsprog_5_freeresult ();
 #endif /* K&R C */
-#define L2N3VERS 6
+#define NODE6 6
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define L2N3PROC 1
-extern  int * l2n3proc_6(name *, CLIENT *);
-extern  int * l2n3proc_6_svc(name *, struct svc_req *);
-extern int marksprog_6_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+extern  int * nodeproc_6(domain *, CLIENT *);
+extern  int * nodeproc_6_svc(domain *, struct svc_req *);
+extern int dnsprog_6_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define L2N3PROC 1
-extern  int * l2n3proc_6();
-extern  int * l2n3proc_6_svc();
-extern int marksprog_6_freeresult ();
+extern  int * nodeproc_6();
+extern  int * nodeproc_6_svc();
+extern int dnsprog_6_freeresult ();
 #endif /* K&R C */
-#define L2N4VERS 7
+#define NODE7 7
 
 #if defined(__STDC__) || defined(__cplusplus)
-#define L2N4PROC 1
-extern  int * l2n4proc_7(name *, CLIENT *);
-extern  int * l2n4proc_7_svc(name *, struct svc_req *);
-extern int marksprog_7_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
+extern  int * nodeproc_7(domain *, CLIENT *);
+extern  int * nodeproc_7_svc(domain *, struct svc_req *);
+extern int dnsprog_7_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
-#define L2N4PROC 1
-extern  int * l2n4proc_7();
-extern  int * l2n4proc_7_svc();
-extern int marksprog_7_freeresult ();
+extern  int * nodeproc_7();
+extern  int * nodeproc_7_svc();
+extern int dnsprog_7_freeresult ();
 #endif /* K&R C */
 
 /* the xdr functions */
 
 #if defined(__STDC__) || defined(__cplusplus)
-extern  bool_t xdr_name (XDR *, name*);
+extern  bool_t xdr_domain (XDR *, domain*);
 
 #else /* K&R C */
-extern bool_t xdr_name ();
+extern bool_t xdr_domain ();
 
 #endif /* K&R C */
 
