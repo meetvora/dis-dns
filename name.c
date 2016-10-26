@@ -89,8 +89,8 @@ int main(int argc,char** argv)
 
      if (*result == 5){  // Checking for ".net"
           cl = clnt_create(HOST, DNSPROG, NODE5, "udp");
-          t = nodeproc_4(url, cl);
-          printf("***Node 4 Response***\n");
+          t = nodeproc_5(url, cl);
+          printf("***Node 5 Response***\n");
           printf("%s\n", t->content);
           exit(1);         
      }     
