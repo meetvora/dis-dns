@@ -30,10 +30,14 @@ int * nodeproc_1_svc(domain* DOM, struct svc_req *arg2)
 		}
 	}
 
+	printf("ROOT: %s\n", last);
 	if(found)
 		res = (int)(line[strlen(last)+1] - '0');
+	else{
+		res = -1;
+		printf("Received a query not yet defined.\n");
+	}
 	fclose(fp);	
-	printf("ROOT: %s\n", last);
 	return &res;
 }
 
@@ -61,13 +65,15 @@ domain * nodeproc_2_svc(domain* DOM, struct svc_req *arg2)
 		}
 	}
 
+	printf("NODE 2: %s\n", DOM->content);	
 	if(found)
 		strcpy(res,line+strlen(required)+1);
+	else
+		strcpy(res, "NOT FOUND");
 
 	fclose(fp);	
 	struct domain *response = (struct domain*)malloc(sizeof(struct domain));
 	strcpy(response->content, res);
-	printf("NODE 2: %s\n", DOM->content);	
 	return response;
 }
 
@@ -99,11 +105,16 @@ int * nodeproc_3_svc(domain* DOM, struct svc_req *arg2)
 			break;
 		}
 	}
-	if(found)
-		res = (int)(line[4] - '0');
-	if (res == 0)
-		res =8;
 	printf("NODE 3: %s\n", sub);
+	if(found){
+		res = (int)(line[4] - '0');
+		if (res == 0)
+			res =8;
+	}
+	else{
+		res = -1;
+		printf("Received a query not yet defined.\n");
+	}
 	return &res;
 	
 }
@@ -132,13 +143,15 @@ domain * nodeproc_4_svc(domain* DOM, struct svc_req *arg2)
 		}
 	}
 
+	printf("NODE 4: %s\n", DOM->content);	
 	if(found)
 		strcpy(res,line+strlen(required)+1);
+	else
+		strcpy(res, "NOT FOUND");
 
 	fclose(fp);	
 	struct domain *response = (struct domain*)malloc(sizeof(struct domain));
 	strcpy(response->content, res);
-	printf("NODE 4: %s\n", DOM->content);	
 	return response;
 }
 domain * nodeproc_5_svc(domain* DOM, struct svc_req *arg2)
@@ -164,14 +177,15 @@ domain * nodeproc_5_svc(domain* DOM, struct svc_req *arg2)
 			break;
 		}
 	}
+	printf("NODE 5: %s\n", DOM->content);
 
 	if(found)
 		strcpy(res,line+strlen(required)+1);
-
+	else
+		strcpy(res, "NOT FOUND");
 	fclose(fp);	
 	struct domain *response = (struct domain*)malloc(sizeof(struct domain));
 	strcpy(response->content, res);	
-	printf("NODE 5: %s\n", DOM->content);
 	return response;
 }
 domain * nodeproc_6_svc(domain* DOM, struct svc_req *arg2)
@@ -198,13 +212,16 @@ domain * nodeproc_6_svc(domain* DOM, struct svc_req *arg2)
 		}
 	}
 
+	printf("NODE 6: %s\n", DOM->content);
+	
 	if(found)
 		strcpy(res,line+strlen(required)+1);
+	else
+		strcpy(res, "NOT FOUND");
 
 	fclose(fp);	
 	struct domain *response = (struct domain*)malloc(sizeof(struct domain));
 	strcpy(response->content, res);	
-	printf("NODE 6: %s\n", DOM->content);
 	return response;
 }
 domain * nodeproc_7_svc(domain* DOM, struct svc_req *arg2)
@@ -231,13 +248,16 @@ domain * nodeproc_7_svc(domain* DOM, struct svc_req *arg2)
 		}
 	}
 
+	printf("NODE 7: %s\n", DOM->content);	
+	
 	if(found)
 		strcpy(res,line+strlen(required)+1);
+	else
+		strcpy(res, "NOT FOUND");
 
 	fclose(fp);	
 	struct domain *response = (struct domain*)malloc(sizeof(struct domain));
 	strcpy(response->content, res);
-	printf("NODE 7: %s\n", DOM->content);	
 	return response;
 }
 domain * nodeproc_8_svc(domain* DOM, struct svc_req *arg2)
@@ -264,12 +284,15 @@ domain * nodeproc_8_svc(domain* DOM, struct svc_req *arg2)
 		}
 	}
 
+	printf("NODE 8: %s\n", DOM->content);
+	
 	if(found)
 		strcpy(res,line+strlen(required)+1);
-
+	else
+		strcpy(res, "NOT FOUND");
+	
 	fclose(fp);	
 	struct domain *response = (struct domain*)malloc(sizeof(struct domain));
 	strcpy(response->content, res);	
-	printf("NODE 8: %s\n", DOM->content);
 	return response;
 }

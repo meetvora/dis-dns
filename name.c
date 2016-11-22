@@ -42,6 +42,11 @@ int main(int argc,char** argv)
      //Connecting to nodes
      printf("Root (Node 1) -> Node %d\n", *result);
 
+     if (*result == -1){
+          printf("Domain entry not registered with any DNS server.\n");
+          exit(1);
+     }
+
      if (*result == 2){            // Checking for ".com"
           cl = clnt_create(HOST, DNSPROG, NODE2, "udp");
           t = nodeproc_2(url, cl);
